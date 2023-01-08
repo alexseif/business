@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tracker{% endblock %}
+
+{% block body %}
+    <h1>Tracker</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tracker.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ tracker.name }}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{ tracker.duration }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_tracker_index') }}">back to list</a>
+
+    <a href="{{ path('app_tracker_edit', {'id': tracker.id}) }}">edit</a>
+
+    {{ include('tracker/_delete_form.html.twig') }}
+{% endblock %}
