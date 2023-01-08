@@ -1,37 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tracker index{% endblock %}
-
-{% block body %}
-    <h1>Tracker index</h1>
-
+{% block card_title %}{{ 'tracker.tracker'|trans }}{% endblock %}
+{% block card_body %}
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Duration</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>{{ 'tracker.name'|trans }}</th>
+            <th>{{ 'tracker.duration'|trans }}</th>
+            <th>{{ 'actions.actions' }}</th>
+        </tr>
         </thead>
         <tbody>
         {% for tracker in trackers %}
             <tr>
-                <td>{{ tracker.id }}</td>
                 <td>{{ tracker.name }}</td>
                 <td>{{ tracker.duration }}</td>
                 <td>
-                    <a href="{{ path('app_tracker_show', {'id': tracker.id}) }}">show</a>
-                    <a href="{{ path('app_tracker_edit', {'id': tracker.id}) }}">edit</a>
+                    <a href="{{ path('app_tracker_show', {'id': tracker.id}) }}">{{ 'actions.show'|trans }}</a>
+                    <a href="{{ path('app_tracker_edit', {'id': tracker.id}) }}">{{ 'actions.edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">{{ 'messages.no_records'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_tracker_new') }}">Create new</a>
+    <a href="{{ path('app_tracker_new') }}">{{ 'actions.new'|trans }}</a>
 {% endblock %}

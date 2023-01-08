@@ -27,6 +27,8 @@ $brand-info: #3366CC;
 
 // Scaffolding
 $body-bg: $hacker-bg;
+$body-color-dark: $gray-dark;
+$body-color: $gray-dark;
 $text-color: $gray-dark;
 $link-color: $brand-primary;
 $link-hover-color: darken($link-color, 15%);
@@ -320,3 +322,38 @@ $panel-warning-heading-bg: $state-warning-bg;
 $panel-danger-text: $state-danger-text;
 $panel-danger-border: $state-danger-border;
 $panel-danger-heading-bg: $state-danger-bg;
+
+
+// card
+$card-bg: transparent;
+$card-body-padding: 15px;
+$card-heading-padding: 10px 15px;
+$card-footer-padding: $card-heading-padding;
+$card-border-radius: $border-radius-base;
+
+$card-inner-border: lighten($hacker-bg, 10%);
+$card-footer-bg: darken($hacker-bg, 10%);
+
+$card-default-text: $hacker-bg;
+$card-default-border: lighten($hacker-bg, 10%);
+$card-default-heading-bg: darken($hacker-bg, 10%);
+
+$card-primary-text: $hacker-bg;
+$card-primary-border: $brand-primary;
+$card-primary-heading-bg: $brand-primary;
+
+$card-success-text: $state-success-text;
+$card-success-border: $state-success-border;
+$card-success-heading-bg: $state-success-bg;
+
+$card-info-text: $state-info-text;
+$card-info-border: $state-info-border;
+$card-info-heading-bg: $state-info-bg;
+
+$card-warning-text: $state-warning-text;
+$card-warning-border: $state-warning-border;
+$card-warning-heading-bg: $state-warning-bg;
+
+$card-danger-text: $state-danger-text;
+$card-danger-border: $state-danger-border;
+$card-danger-heading-bg: $state-danger-bg;

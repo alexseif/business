@@ -1,0 +1,8 @@
+bootstrap_menu:
+  version: 5 # Optional, defaults to Bootstrap 5
+  menus:
+    main:
+      items:
+        tracker:
+          label: 'Tracker'
+          route: 'app_tracker_index'
