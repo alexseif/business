@@ -1,10 +1,6 @@
 app:
   name: 'Alex Seif Business'
   developer: 'Alex Seif'
-tracker:
-  tracker: Tracker
-  name: Name
-  duration: Duration
 actions:
   actions: Actions
   new: New
@@ -14,3 +10,13 @@ actions:
   toggle_navigation: 'Toggle Navigation'
 messages:
   no_records: 'No Records'
+
+tracker:
+  tracker: Tracker
+  name: Name
+  duration: Duration
+
+braindump:
+  braindump: Brain Dump
+  name: Name
+  dump: Dump

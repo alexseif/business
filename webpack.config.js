@@ -13,7 +13,31 @@ Encore
     .setPublicPath('/build')
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
-
+    // copy tinymce's skin files
+    .copyFiles({
+        from: 'node_modules/tinymce/skins',
+        to: 'skins/[path]/[name].[ext]'
+    })
+    // copy tinymce's skin files
+    .copyFiles({
+        from: 'node_modules/tinymce/icons',
+        to: 'icons/[path]/[name].[ext]'
+    })
+    // copy tinymce's skin files
+    .copyFiles({
+        from: 'node_modules/tinymce/models',
+        to: 'models/[path]/[name].[ext]'
+    })
+    // copy tinymce's skin files
+    .copyFiles({
+        from: 'node_modules/tinymce/themes',
+        to: 'themes/[path]/[name].[ext]'
+    })
+    // copy tinymce's skin files
+    .copyFiles({
+        from: 'node_modules/tinymce/plugins',
+        to: 'plugins/[path]/[name].[ext]'
+    })
     /*
      * ENTRY CONFIG
      *
@@ -21,6 +45,7 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
+    .addEntry('tinymce', './assets/tinymce.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

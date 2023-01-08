@@ -4,7 +4,6 @@
 {% block card_body %}
     Making something from nothing
     <ol>
-        <li>Tracker</li>
         <li>
             2,000 USD Target
             <ol>
@@ -13,4 +12,12 @@
             </ol>
         </li>
     </ol>
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">{{ lastBraindump.name }}</h2>
+        </div>
+        <div class="card-body">
+            {{ lastBraindump.dump|raw }}
+        </div>
+    </div>
 {% endblock %}

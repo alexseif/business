@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('tinymce') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('tinymce') }}
+{% endblock %}
+{% block card_title %}{{ 'actions.new'|trans }} {{ 'braindump.braindump'|trans }}{% endblock %}
+
+{% block card_body %}
+
+    {{ include('braindump/_form.html.twig') }}
+
+{% endblock %}
+{% block sidebar %}
+    <a href="{{ path('app_braindump_index') }}">{{ 'actions.back'|trans }}</a>
+{% endblock %}

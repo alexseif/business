@@ -3,6 +3,9 @@ bootstrap_menu:
   menus:
     main:
       items:
+        braindump:
+          label: 'BrainDump'
+          route: 'app_braindump_index'
         tracker:
           label: 'Tracker'
           route: 'app_tracker_index'

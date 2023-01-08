@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block card_title %}{{ 'braindump.braindump'|trans }}{% endblock %}
+
+{% block card_body %}
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>{{ 'braindump.name'|trans }}</th>
+            <td>{{ braindump.name }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'braindump.dump'|trans }}</th>
+            <td>{{ braindump.dump }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
+{% block sidebar %}
+    <a href="{{ path('app_braindump_index') }}">{{ 'actions.back'|trans }}</a>
+
+    <a href="{{ path('app_braindump_edit', {'id': braindump.id}) }}">{{ 'actions.edit'|trans }}</a>
+
+    {{ include('braindump/_delete_form.html.twig') }}
+{% endblock %}
