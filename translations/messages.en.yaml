@@ -1,18 +1,16 @@
 app:
-  name: Alex Seif Business
-  developer: Alex Seif
+  name: 'Alex Seif Business'
+  developer: 'Alex Seif'
 tracker:
   tracker: Tracker
   name: Name
   duration: Duration
-
 actions:
   actions: Actions
   new: New
   show: Show
   edit: Edit
   back: back
-  toggle_navigation: Toggle Navigation
-
+  toggle_navigation: 'Toggle Navigation'
 messages:
-  no_records: No Records
+  no_records: 'No Records'
