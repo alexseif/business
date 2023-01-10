@@ -2,22 +2,30 @@
 
 
 {% block card_body %}
-    Making something from nothing
-    <ol>
-        <li>
-            2,000 USD Target
-            <ol>
-                <li>Freelnacing profiles</li>
-                <li>Gettting the money</li>
-            </ol>
-        </li>
-    </ol>
     <div class="card">
         <div class="card-header">
             <h2 class="card-title">{{ lastBraindump.name }}</h2>
         </div>
         <div class="card-body">
             {{ lastBraindump.dump|raw }}
+        </div>
+    </div>
+{% endblock %}
+{% block sidebar %}
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Making something from nothing</h2>
+        </div>
+        <div class="card-body">
+            <ol>
+                <li>
+                    2,000 USD Target
+                    <ol>
+                        <li>Freelnacing profiles</li>
+                        <li>Gettting the money</li>
+                    </ol>
+                </li>
+            </ol>
         </div>
     </div>
 {% endblock %}
