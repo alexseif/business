@@ -7,6 +7,8 @@ actions:
   show: Show
   edit: Edit
   back: back
+  complete: complete
+  delete: Delete
   toggle_navigation: 'Toggle Navigation'
 messages:
   no_records: 'No Records'
@@ -20,3 +22,10 @@ braindump:
   braindump: Brain Dump
   name: Name
   dump: Dump
+
+time_management:
+  time_management: Time Management
+  project: Project
+  task: Task
+  duration: Duration
+  est: EST
