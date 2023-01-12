@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block card_title %}{{ 'time_management.time_management'|trans }}{% endblock %}
+
+{% block card_body %}
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>{{ 'time_management.project'|trans }}</th>
+            <td>{{ time_management.project }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'time_management.task'|trans }}</th>
+            <td>{{ time_management.task }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'time_management.duration'|trans }}</th>
+            <td>{{ time_management.duration }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+{% endblock %}
+{% block sidebar %}
+    <a href="{{ path('app_time_management_index') }}">{{ 'actions.back'|trans }}</a>
+    <a href="{{ path('app_time_management_edit', {'id': time_management.id}) }}">{{ 'actions.edit'|trans }}</a>
+    {{ include('time_management/_delete_form.html.twig') }}
+{% endblock %}

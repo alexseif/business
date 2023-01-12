@@ -1,0 +1,5 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+<a id="tm_complete" href="#">{{ 'actions.complete'|trans }}</a>
+<button class="btn float-end">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

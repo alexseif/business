@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block card_title %}{{ 'actions.new'|trans }} {{ 'time_management.time_management'|trans }}{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('time_management') }}
+{% endblock %}
+{% block card_body %} {{ include('time_management/_form.html.twig') }} {% endblock %}
+{% block sidebar %}
+    <a href="{{ path('app_time_management_index') }}">{{ 'actions.back'|trans }}</a>
+{% endblock %}

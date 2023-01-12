@@ -1,8 +1,10 @@
 @import "variables";
 @import "bootstrap";
-#main {
+
+body {
   margin-top: 100px;
 }
-//.bg-red{
-//  background-color: #C80003;
-//}
+
+tr.completed > * {
+  text-decoration: line-through;
+}

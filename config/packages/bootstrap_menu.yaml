@@ -9,3 +9,6 @@ bootstrap_menu:
         tracker:
           label: 'Tracker'
           route: 'app_tracker_index'
+        time_management:
+          label: 'Time Management'
+          route: 'app_time_management_index'

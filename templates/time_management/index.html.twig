@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block card_title %}{{ 'time_management.time_management'|trans }}{% endblock %}
+
+{% block card_body %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>{{ 'time_management.project'|trans }}</th>
+            <th>{{ 'time_management.task'|trans }}</th>
+            <th>{{ 'time_management.duration'|trans }}</th>
+            <th>{{ 'time_management.est'|trans }}</th>
+            <th>{{ 'actions.actions'|trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for time_management in time_managements %}
+            <tr class="{{ (time_management.completed)?'completed':'' }}">
+                <td>{{ time_management.project }}</td>
+                <td>{{ time_management.task }}</td>
+                <td>{{ time_management.duration }}</td>
+                <td>{{ time_management.eta|date }}</td>
+                <td>
+                    <a href="{{ path('app_time_management_show', {'id': time_management.id}) }}">{{ 'actions.show'|trans }}</a>
+                    <a href="{{ path('app_time_management_edit', {'id': time_management.id}) }}">{{ 'actions.edit'|trans }}</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">{{ 'messages.no_records'|trans }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+{% block sidebar %}
+    <a href="{{ path('app_time_management_new') }}">{{ 'actions.new'|trans }}</a>
+{% endblock %}
