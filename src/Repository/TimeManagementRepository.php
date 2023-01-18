@@ -39,28 +39,11 @@ class TimeManagementRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return TimeManagement[] Returns an array of TimeManagement objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('t')
-//            ->andWhere('t.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('t.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findByNotCompletedOrCompletedToday(){
+        return $this->createQueryBuilder('time_management')
+        ->where('time_management.completed is NULL OR time_management.completed >= CURRENT_DATE()')
+        ->getQuery()
+        ->getResult();
+    }
 
-//    public function findOneBySomeField($value): ?TimeManagement
-//    {
-//        return $this->createQueryBuilder('t')
-//            ->andWhere('t.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
 }

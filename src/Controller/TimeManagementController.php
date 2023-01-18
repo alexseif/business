@@ -18,7 +18,7 @@ class TimeManagementController extends AbstractController
     public function index(TimeManagementRepository $timeManagementRepository): Response
     {
         $timeManager = new TimeManager();
-        $items = $timeManagementRepository->findAll();
+        $items = $timeManagementRepository->findByNotCompletedOrCompletedToday();
         foreach ($items as $item) {
             $timeManager->setETA($item);
         }
