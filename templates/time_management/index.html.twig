@@ -1,10 +1,17 @@
 {% extends 'base.html.twig' %}
-
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('time_management') }}
+{% endblock %}
 {% block card_title %}{{ 'time_management.time_management'|trans }}{% endblock %}
 
 {% block card_body %}
-
-    <table class="table">
+<div class="btn-toolbar filters">
+    <a class="btn btn-link" id="reset-table">All</a>
+    <button class="btn btn-link" data-filter="{{ {'date': "now"|date('Y-m-d')}|json_encode }}">Today</button>
+    <button class="btn btn-link" data-filter="{{ {'completed': true}|json_encode }}">Completed</button>
+</div>
+    <table class="table" id="time-table">
         <thead>
         <tr>
             <th>{{ 'time_management.project'|trans }}</th>
@@ -16,7 +23,7 @@
         </thead>
         <tbody>
         {% for time_management in time_managements %}
-            <tr class="{{ (time_management.completed)?'completed':'' }}">
+            <tr class="{{ (time_management.completed)?'completed':'' }}" data-date="{{ time_management.eta|date('Y-m-d') }}" data-completed="{{ time_management.completed?1:0 }}">
                 <td>{{ time_management.project }}</td>
                 <td>{{ time_management.task }}</td>
                 <td>{{ time_management.duration }}</td>

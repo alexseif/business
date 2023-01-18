@@ -22,6 +22,7 @@ class TimeManagementController extends AbstractController
         foreach ($items as $item) {
             $timeManager->setETA($item);
         }
+        
         return $this->render('time_management/index.html.twig', [
             'time_managements' => $items,
         ]);
