@@ -6,11 +6,17 @@
 {% block card_title %}{{ 'time_management.time_management'|trans }}{% endblock %}
 
 {% block card_body %}
-<div class="btn-toolbar filters">
-    <a class="btn btn-link" id="reset-table">All</a>
-    <button class="btn btn-link" data-filter="{{ {'date': "now"|date('Y-m-d')}|json_encode }}">Today</button>
-    <button class="btn btn-link" data-filter="{{ {'completed': true}|json_encode }}">Completed</button>
-</div>
+    <div class="btn-toolbar filters">
+        <a class="btn btn-link" id="reset-table">{{ 'filters.all'|trans }}</a>
+        <button class="btn btn-link" data-filter="{{ {'date': "now"|date('Y-m-d')}|json_encode }}">{{ 'filters.today'|trans }}</button>
+        <button class="btn btn-link" data-filter="{{ {'completed': true}|json_encode }}">{{ 'filters.completed'|trans }}</button>
+    </div>
+    <div class="btn-toolbar filters">
+        {% for project in projects %}
+            <button class="btn btn-link"
+                    data-filter="{{ {'project': project.id}|json_encode }}">{{ project.name }}</button>
+        {% endfor %}
+    </div>
     <table class="table" id="time-table">
         <thead>
         <tr>
@@ -23,7 +29,10 @@
         </thead>
         <tbody>
         {% for time_management in time_managements %}
-            <tr class="{{ (time_management.completed)?'completed':'' }}" data-date="{{ time_management.eta|date('Y-m-d') }}" data-completed="{{ time_management.completed?1:0 }}">
+            <tr class="{{ (time_management.completed)?'completed':'' }}"
+                data-date="{{ time_management.eta|date('Y-m-d') }}"
+                data-completed="{{ time_management.completed?1:0 }}"
+                data-project="{{ time_management.project.id }}">
                 <td>{{ time_management.project }}</td>
                 <td>{{ time_management.task }}</td>
                 <td>{{ time_management.duration }}</td>

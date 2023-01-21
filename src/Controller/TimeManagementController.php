@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\TimeManagement;
 use App\Form\TimeManagementType;
 use App\Manager\TimeManager;
+use App\Repository\ProjectRepository;
 use App\Repository\TimeManagementRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,16 +16,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class TimeManagementController extends AbstractController
 {
     #[Route('/', name: 'app_time_management_index', methods: ['GET'])]
-    public function index(TimeManagementRepository $timeManagementRepository): Response
+    public function index(TimeManagementRepository $timeManagementRepository, ProjectRepository $projectRepository): Response
     {
         $timeManager = new TimeManager();
         $items = $timeManagementRepository->findByNotCompletedOrCompletedToday();
         foreach ($items as $item) {
             $timeManager->setETA($item);
         }
-        
+
+
         return $this->render('time_management/index.html.twig', [
             'time_managements' => $items,
+            'projects' => $projectRepository->findAll()
         ]);
     }
 
@@ -59,6 +62,7 @@ class TimeManagementController extends AbstractController
     public function edit(Request $request, TimeManagement $timeManagement, TimeManagementRepository $timeManagementRepository): Response
     {
         $form = $this->createForm(TimeManagementType::class, $timeManagement);
+        dump($request);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

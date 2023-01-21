@@ -1,6 +1,7 @@
 app:
   name: 'Alex Seif Business'
   developer: 'Alex Seif'
+
 actions:
   actions: Actions
   new: New
@@ -10,6 +11,11 @@ actions:
   complete: complete
   delete: Delete
   toggle_navigation: 'Toggle Navigation'
+
+filters:
+  all: All
+  today: Today
+  completed: Completed
 messages:
   no_records: 'No Records'
 
@@ -29,3 +35,9 @@ time_management:
   task: Task
   duration: Duration
   est: EST
+  completed: Completed
+
+project:
+  project: Project
+  name: Name
+  is_active: Is Active

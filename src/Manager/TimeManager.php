@@ -94,10 +94,10 @@ class TimeManager
             $this->getNow()->modify('+2 days')
                 ->setTime($this->getSunrise(), 00);
         }
-        if(6==$newEta->format('N')){
-            $this->getNow()->modify('+1 day')
-                ->setTime($this->getSunrise(), 00);
-        }
+//        if(6==$newEta->format('N')){
+//            $this->getNow()->modify('+1 day')
+//                ->setTime($this->getSunrise(), 00);
+//        }
         $newEta = clone $this->getNow()->modify('+' . $this->getPrevDuration() . ' minutes');
         return $newEta;
     }

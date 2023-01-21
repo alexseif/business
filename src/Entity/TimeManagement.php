@@ -15,9 +15,6 @@ class TimeManagement
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $project = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $task = null;
 
     #[ORM\Column]
@@ -27,6 +24,9 @@ class TimeManagement
     private ?\DateTimeInterface $completed = null;
 
     public ?\DateTime $eta = null;
+
+    #[ORM\ManyToOne(inversedBy: 'TimeManagement')]
+    private ?Project $project = null;
 
     /**
      * @return \DateTime|null
@@ -47,18 +47,6 @@ class TimeManagement
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getProject(): ?string
-    {
-        return $this->project;
-    }
-
-    public function setProject(string $project): self
-    {
-        $this->project = $project;
-
-        return $this;
     }
 
     public function getTask(): ?string
@@ -93,6 +81,18 @@ class TimeManagement
     public function setCompleted(?\DateTimeInterface $completed): self
     {
         $this->completed = $completed;
+
+        return $this;
+    }
+
+    public function getProject(): ?Project
+    {
+        return $this->project;
+    }
+
+    public function setProject(?Project $project): self
+    {
+        $this->project = $project;
 
         return $this;
     }

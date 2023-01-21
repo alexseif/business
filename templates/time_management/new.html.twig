@@ -5,7 +5,9 @@
     {{ parent() }}
     {{ encore_entry_script_tags('time_management') }}
 {% endblock %}
-{% block card_body %} {{ include('time_management/_form.html.twig') }} {% endblock %}
+{% block card_body %}
+    {{ include('time_management/_form.html.twig') }}
+{% endblock %}
 {% block sidebar %}
     <a href="{{ path('app_time_management_index') }}">{{ 'actions.back'|trans }}</a>
 {% endblock %}

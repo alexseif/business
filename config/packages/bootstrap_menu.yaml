@@ -12,3 +12,6 @@ bootstrap_menu:
         time_management:
           label: 'Time Management'
           route: 'app_time_management_index'
+        project:
+          label: 'Project'
+          route: 'app_project_index'

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block card_title %}{{ 'project.project'|trans }}{% endblock %}
+
+{% block card_body %}
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>{{ 'project.name'|trans }}</th>
+            <td>{{ project.name }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'project.is_active'|trans }}</th>
+            <td>{{ project.isActive ? 'Yes' : 'No' }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
+{% block sidebar %}
+    <a href="{{ path('app_project_index') }}">{{ 'actions.back'|trans }}</a>
+    <a href="{{ path('app_project_edit', {'id': project.id}) }}">{{ 'actions.edit'|trans }}</a>
+    {{ include('project/_delete_form.html.twig') }}
+{% endblock %}

@@ -18,11 +18,12 @@
             <th>{{ 'time_management.duration'|trans }}</th>
             <td>{{ time_management.duration }}</td>
         </tr>
+        <tr>
+            <th>{{ 'time_management.completed'|trans }}</th>
+            <td>{{ time_management.completed ? time_management.completed|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
         </tbody>
     </table>
-
-
-
 {% endblock %}
 {% block sidebar %}
     <a href="{{ path('app_time_management_index') }}">{{ 'actions.back'|trans }}</a>

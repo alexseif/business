@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block card_title %}{{ 'project.project'|trans }}{% endblock %}
+
+{% block card_body %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>{{ 'project.name'|trans }}</th>
+            <th>{{ 'project.is_active'|trans }}</th>
+            <th>{{ 'actions.actions'|trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for project in projects %}
+            <tr>
+                <td>{{ project.name }}</td>
+                <td>{{ project.isActive ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_project_show', {'id': project.id}) }}">{{ 'actions.show'|trans }}</a>
+                    <a href="{{ path('app_project_edit', {'id': project.id}) }}">{{ 'actions.edit'|trans }}</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">{{ 'messages.no_records'|trans }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+{% block sidebar %}
+    <a href="{{ path('app_project_new') }}">{{ 'actions.new'|trans }}</a>
+{% endblock %}
