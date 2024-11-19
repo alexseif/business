@@ -1,36 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block card_title %}{{ 'braindump.braindump'|trans }}{% endblock %}
+{% block card_title %}
+	{{ 'braindump.braindump'|trans }}
+{% endblock %}
 
 {% block card_body %}
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th>{{ 'braindump.name'|trans }}</th>
-            <th>{{ 'braindump.dump'|trans }}</th>
-            <th>{{ 'actions.actions'|trans }}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for braindump in braindumps %}
-            <tr>
-                <td>{{ braindump.name }}</td>
-                <td>{{ braindump.dump|raw }}</td>
-                <td>
-                    <a href="{{ path('app_braindump_show', {'id': braindump.id}) }}">{{ 'actions.show'|trans }}</a>
-                    <a href="{{ path('app_braindump_edit', {'id': braindump.id}) }}">{{ 'actions.edit'|trans }}</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">{{ 'messages.no_records'|trans }}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<div {{ react_component('braindump/Braindumps') }}>
+		Loading...
+		<i class="fas fa-cog fa-spin fa-3x"></i>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>{{ 'braindump.name'|trans }}</th>
+				<th>{{ 'braindump.dump'|trans }}</th>
+				<th>{{ 'actions.actions'|trans }}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for braindump in braindumps %}
+				<tr>
+					<td>{{ braindump.name }}</td>
+					<td>{{ braindump.dump|raw }}</td>
+					<td>
+						<a href="{{ path('app_braindump_show', {'id': braindump.id}) }}">{{ 'actions.show'|trans }}</a>
+						<a href="{{ path('app_braindump_edit', {'id': braindump.id}) }}">{{ 'actions.edit'|trans }}</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">{{ 'messages.no_records'|trans }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 
 {% endblock %}
 {% block sidebar %}
-    <a href="{{ path('app_braindump_new') }}">{{ 'actions.new'|trans }}</a>
+	<a href="{{ path('app_braindump_new') }}">{{ 'actions.new'|trans }}</a>
 {% endblock %}

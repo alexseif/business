@@ -16,6 +16,7 @@ class DefaultController extends AbstractController
         $lastBraindump = $braindumpRepository->findOneBy([], ['id' => 'DESC']);
         return $this->render('default/index.html.twig', [
             'lastBraindump' => $lastBraindump
+            // 'lastBraindump' => [ 'id' => $lastBraindump->getId(), 'name' => $lastBraindump->getName(), 'dump' => $lastBraindump->getDump(),]
         ]);
     }
 }

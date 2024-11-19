@@ -1,31 +1,8 @@
 {% extends 'base.html.twig' %}
 
-
-{% block card_body %}
-    <div class="card">
-        <div class="card-header">
-            <h2 class="card-title">{{ lastBraindump.name }}</h2>
-        </div>
-        <div class="card-body">
-            {{ lastBraindump.dump|raw }}
-        </div>
-    </div>
-{% endblock %}
-{% block sidebar %}
-    <div class="card">
-        <div class="card-header">
-            <h2 class="card-title">Making something from nothing</h2>
-        </div>
-        <div class="card-body">
-            <ol>
-                <li>
-                    2,000 USD Target
-                    <ol>
-                        <li>Freelnacing profiles</li>
-                        <li>Gettting the money</li>
-                    </ol>
-                </li>
-            </ol>
-        </div>
-    </div>
+{% block body %}
+	<div {{ react_component('MainPage', { lastBraindump: lastBraindump } ) }}>
+		Loading...
+		<i class="fas fa-cog fa-spin fa-3x"></i>
+	</div>
 {% endblock %}

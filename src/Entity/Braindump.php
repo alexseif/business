@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\BraindumpRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: BraindumpRepository::class)]
+#[ApiResource]
 class Braindump
 {
     #[ORM\Id]
@@ -26,7 +28,6 @@ class Braindump
         $this->name = $today->format('Y-m-d H:i');
     }
 
-
     public function getId(): ?int
     {
         return $this->id;
@@ -40,7 +41,6 @@ class Braindump
     public function setName(string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -52,7 +52,6 @@ class Braindump
     public function setDump(string $dump): self
     {
         $this->dump = $dump;
-
         return $this;
     }
 }
