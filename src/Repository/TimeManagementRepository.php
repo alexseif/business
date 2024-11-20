@@ -39,12 +39,12 @@ class TimeManagementRepository extends ServiceEntityRepository
         }
     }
 
-    public function findByNotCompletedOrCompletedToday(){
+    public function findByNotCompletedOrCompletedToday()
+    {
         return $this->createQueryBuilder('time_management')
-        ->where('time_management.completed is NULL OR time_management.completed >= CURRENT_DATE()')
-            ->orderBy('time_management.completed')
-        ->getQuery()
-        ->getResult();
+            ->where('time_management.completed is NULL OR time_management.completed >= CURRENT_DATE()')
+            // ->orderBy('time_management.completed')
+            ->getQuery()
+            ->getResult();
     }
-
 }
